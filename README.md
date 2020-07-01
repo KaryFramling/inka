@@ -24,7 +24,7 @@ After downloading the INKA files, make sure your R work directory is the one whe
 require(caret) # Contains useful functions for training/test set partitioning and similar.
 source("RBF.R")
 
-set.seed(2) # For stable results 
+set.seed(5) # For stable results. 
 inTrain <- createDataPartition(y=iris$Species, p=0.75, list=FALSE) # 75% to train set
 training.Iris <- iris[inTrain,]
 testing.Iris <- iris[-inTrain,]
