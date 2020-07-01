@@ -75,6 +75,8 @@ There were 50 or more warnings (use warnings() to see the first 50)
 ```
 The warnings are related to the pseudo-matrix inversions and are not relevant.
 
+The command ``nrow(rbf$get.hidden()$get.weights())`` gives the number of hidden neurons created. 
+
 # Notes
 
 The examples shown here use the R ``formula`` concept in order to imitate how ``caret`` and other machine learning libraries are implemented. For more detailed information about possible parameters etc., it is recommended to look at the original, underlying lower-level functions. 
