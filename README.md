@@ -1,7 +1,7 @@
 # inka
-R implementation of Interpolating, Normalising and Kernel Allocating (INKA) neural network. 
+R implementation of Interpolating, Normalising and Kernel Allocating (INKA) neural network. INKA was initially developed in Matlab as a part of Kary Främling's PhD thesis around 1994 (published 1996). It is described in the thesis and in a couple of conference papers from 1995/1996.
 
-INKA is an RBF-type neural network. Particular features of INKA are:
+INKA is an RBF-type (Radial Basis Function) neural network. Particular features of INKA are:
 * The hidden layer is initially empty.
 * New hidden neurons are added one at a time for the training example that has the greatest output error.
 * Output layer weights are trained using a pseudo-matrix inversion.
@@ -12,9 +12,6 @@ INKA is an RBF-type neural network. Particular features of INKA are:
 * Since INKA finds the "good" network size by itself and because INKA typically doesn't require hardly any parameter tuning, INKA is easy to use. 
 * INKA gives the best compromise between accuracy, size and training time compared to Random Forest, Gradient Boosting, Neural Network (backpropagation) at least for task such as Iris classification, Breast Cancer diagnosis and function regression for the sombrero function, for instance.
 * Work on INKA has been on stand-by 1995-2020. In practice, it is still in its early stages of development. 
-
-# Background
-INKA is an RBF-type (Radial Basis Function) neural network developed as a part of Kary Främling's PhD thesis in around 1994. It is described in the thesis and a couple of conference papers from 1995/1996.
 
 # Running
 
