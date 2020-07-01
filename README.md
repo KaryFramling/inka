@@ -18,7 +18,7 @@ INKA is an RBF-type (Radial Basis Function) neural network developed as a part o
 
 # Running
 
-After downloading the INKA files, execute the following for Iris classification:
+After downloading the INKA files, make sure your R work directory is the one where you have downloaded INKA. Then execute the following for Iris classification:
 
 ```R
 require(caret) # Contains useful functions for training/test set partitioning and similar.
