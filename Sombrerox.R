@@ -64,11 +64,15 @@ persp(x, y, z)
 
 # Testing different models from caret. 
 sombrero.knn <- function() {
+  start.time <- proc.time()        # Save starting time
   logRegModel <- train(z ~ ., data=trainData, method = 'knn') # Works
   #logRegModel <- train(z ~ ., data=trainData, method = 'mlp', size=100) # Not good
   #logRegModel <- train(z ~ ., data=trainData, preProc = c("center", "scale"), method = 'mlpKerasDecay') # Doesn't work
   #logRegModel <- train(z ~ ., data=trainData, preProc = c("center", "scale"), method = 'nnet') # Not good
   #logRegPrediction <- predict(logRegModel, testData)
+  end.time <- proc.time()
+  exec.time <- end.time - start.time # Time difference between start & end
+  print(exec.time) 
   zvals <- predict(logRegModel, fxy)
   z <- matrix(zvals, nrow=length(x), ncol=length(y))
   persp(x, y, z)
@@ -78,12 +82,16 @@ sombrero.knn <- function() {
 
 # Use Random Forest. 
 sombrero.rf <- function() {
-  #rfModel <- train(z ~ ., data=trainData, method = 'rf') # This works better
+  start.time <- proc.time()        # Save starting time
+  rfModel <- train(z ~ ., data=trainData, method = 'rf') # This works better
   # library(randomForest)
   # rfModel <- randomForest(z ~ .,
   #                         data=trainData,
   #                         importance=TRUE,
   #                         ntree=5000)
+  end.time <- proc.time()
+  exec.time <- end.time - start.time # Time difference between start & end
+  print(exec.time) 
   zvals <- predict(rfModel, fxy)
   z <- matrix(zvals, nrow=length(x), ncol=length(y))
   persp(x, y, z)
@@ -98,7 +106,11 @@ sombrero.nnet <- function() {
   library(neuralnet)
   #n <- names(tD)
   f <- as.formula("z ~ .")
+  start.time <- proc.time()        # Save starting time
   nn <- neuralnet(f,data=tD,hidden=c(50),linear.output=T,stepmax=1e+06, lifesign = "full")
+  end.time <- proc.time()
+  exec.time <- end.time - start.time # Time difference between start & end
+  print(exec.time) 
   pr.nn <- predict(nn,fxy)
   z <- matrix(pr.nn, nrow=length(x), ncol=length(y))
   persp(x, y, z)
@@ -123,6 +135,7 @@ sombrero.inka.test <- function() {
   ol$set.use.bias(FALSE)
   rbf$set.spread(30) # d^2 parameter in INKA
   c <- 1 # The "c" parameter in INKA training, minimal distance for adding new hidden neuron.
+  start.time <- proc.time()        # Save starting time
   n.hidden <-
     train.inka(
       rbf,
@@ -133,6 +146,9 @@ sombrero.inka.test <- function() {
       inv.whole.set.at.end = F, 
       rmse.limit=0.001
     )
+  end.time <- proc.time()
+  exec.time <- end.time - start.time # Time difference between start & end
+  print(exec.time) 
   
   # Calculate error measure etc.
   print(n.hidden)
