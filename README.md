@@ -1,7 +1,7 @@
 # inka
-R implementation of Interpolating, Normalising and Kernel Allocating (INKA) neural network. 
+R implementation of Interpolating, Normalising and Kernel Allocating (INKA) neural network. INKA was initially developed in Matlab as a part of Kary Främling's PhD thesis around 1994 (published 1996). It is described in the thesis and in a couple of conference papers from 1995/1996.
 
-INKA is an RBF-type neural network. Particular features of INKA are:
+INKA is an RBF-type (Radial Basis Function) neural network. Particular features of INKA are:
 * The hidden layer is initially empty.
 * New hidden neurons are added one at a time for the training example that has the greatest output error.
 * Output layer weights are trained using a pseudo-matrix inversion.
@@ -13,9 +13,6 @@ INKA is an RBF-type neural network. Particular features of INKA are:
 * INKA gives the best compromise between accuracy, size and training time compared to Random Forest, Gradient Boosting, Neural Network (backpropagation) at least for task such as Iris classification, Breast Cancer diagnosis and function regression for the sombrero function, for instance.
 * Work on INKA has been on stand-by 1995-2020. In practice, it is still in its early stages of development. 
 
-# Background
-INKA is an RBF-type (Radial Basis Function) neural network developed as a part of Kary Främling's PhD thesis in around 1994. It is described in the thesis and a couple of conference papers from 1995/1996.
-
 # Running
 
 After downloading the INKA files, make sure your R work directory is the one where you have downloaded INKA. Then execute the following for Iris classification:
@@ -24,7 +21,7 @@ After downloading the INKA files, make sure your R work directory is the one whe
 require(caret) # Contains useful functions for training/test set partitioning and similar.
 source("RBF.R")
 
-set.seed(2) # For stable results 
+set.seed(5) # For stable results. 
 inTrain <- createDataPartition(y=iris$Species, p=0.75, list=FALSE) # 75% to train set
 training.Iris <- iris[inTrain,]
 testing.Iris <- iris[-inTrain,]
@@ -74,6 +71,8 @@ Balanced Accuracy           1.0000            1.0000           1.0000
 There were 50 or more warnings (use warnings() to see the first 50)
 ```
 The warnings are related to the pseudo-matrix inversions and are not relevant.
+
+The command ``nrow(rbf$get.hidden()$get.weights())`` gives the number of hidden neurons created. 
 
 # Notes
 
