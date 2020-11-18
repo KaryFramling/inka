@@ -1,0 +1,16 @@
+Package: inka
+Type: Package
+Title: Interpolating, Normalising and Kernel Allocating (INKA) Neural Network
+Version: 0.1.0
+Author: Kary Främling
+Maintainer: Kary Främling <kary.framling@umu.se>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: graphics, 
+    stats,
+    Rcpp
+RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)
