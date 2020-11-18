@@ -15,11 +15,18 @@ INKA is an RBF-type (Radial Basis Function) neural network. Particular features 
 
 # Running
 
-After downloading the INKA files, make sure your R work directory is the one where you have downloaded INKA. Then execute the following for Iris classification:
+In the future, inka will presumably be available from CRAN. Meanwhile, it can be installed directly from Github with the command
+
+```
+# install.packages('devtools') # Uncomment if devtools wasn't installed already
+devtools::install_github('KaryFramling/inka')
+```
+
+After installing `inka`, execute the following for Iris classification:
 
 ```R
 require(caret) # Contains useful functions for training/test set partitioning and similar.
-source("RBF.R")
+require(inka)
 
 set.seed(5) # For stable results. 
 inTrain <- createDataPartition(y=iris$Species, p=0.75, list=FALSE) # 75% to train set
