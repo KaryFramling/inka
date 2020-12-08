@@ -9,7 +9,7 @@ training.Iris <- iris[inTrain,]
 testing.Iris <- iris[-inTrain,]
 
 #caret
-#IMPLEMENT
+print("Caret KNN Results");
 knn.fit <- train(Species ~ ., data = training.Iris, method = "knn")
 knn.fit
 predictionknn <- predict(knn.fit, testing.Iris)
@@ -25,10 +25,11 @@ print(irisrfpred)
 print("NeuralNet results");
 irisnnpred <- nnet(Species ~ ., data=training.Iris, size=10)
 nnpredicted <- predict(irisnnpred,testing.Iris,type="class")
-nnclassification <- (y == apply(y,1,max)) * 1;
-nnperf <- sum(abs(test.out - nnclassification)) / 2; print(nnperf) # Simple calculation of how many mis-classified
-nnpred.class <- seq(1:nrow(nnclassification)); for ( i in 1:3) { nnpred.class[nnclassification[,i]==1] <- levels(iris$Species)[i]}
-confusionMatrix(data = as.factor(pred.class), reference = iris[-inTrain, 5])
+#print(nnpredicted)
+#nnclassification <- (nnpredicted == apply(nnpredicted,1,max)) * 1;
+#nnperf <- sum(abs(nntest.out - nnclassification)) / 2; print(nnperf) # Simple calculation of how many mis-classified
+#nnpred.class <- seq(1:nrow(nnclassification)); for ( i in 1:3) { nnpred.class[nnclassification[,i]==1] <- levels(iris$Species)[i]}
+confusionMatrix(data = as.factor(nnpredicted), reference = iris[-inTrain, 5])
 
 #INKA 
 print("INKA results");

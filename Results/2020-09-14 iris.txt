@@ -1,0 +1,161 @@
+> print("Caret KNN Results");
+[1] "Caret KNN Results"
+
+k-Nearest Neighbors 
+
+114 samples
+  4 predictor
+  3 classes: 'setosa', 'versicolor', 'virginica' 
+
+No pre-processing
+Resampling: Bootstrapped (25 reps) 
+Summary of sample sizes: 114, 114, 114, 114, 114, 114, ... 
+Resampling results across tuning parameters:
+
+  k  Accuracy   Kappa    
+  5  0.9467919  0.9192312
+  7  0.9516490  0.9267497
+  9  0.9517263  0.9267107
+
+Accuracy was used to select the optimal model using the largest value.
+The final value used for the model was k = 9.
+
+
+Confusion Matrix and Statistics
+
+            Reference
+Prediction   setosa versicolor virginica
+  setosa         12          0         0
+  versicolor      0         12         0
+  virginica       0          0        12
+
+Overall Statistics
+                                     
+               Accuracy : 1          
+                 95% CI : (0.9026, 1)
+    No Information Rate : 0.3333     
+    P-Value [Acc > NIR] : < 2.2e-16  
+                                     
+                  Kappa : 1          
+                                     
+ Mcnemar's Test P-Value : NA         
+
+Statistics by Class:
+
+                     Class: setosa Class: versicolor Class: virginica
+Sensitivity                 1.0000            1.0000           1.0000
+Specificity                 1.0000            1.0000           1.0000
+Pos Pred Value              1.0000            1.0000           1.0000
+Neg Pred Value              1.0000            1.0000           1.0000
+Prevalence                  0.3333            0.3333           0.3333
+Detection Rate              0.3333            0.3333           0.3333
+Detection Prevalence        0.3333            0.3333           0.3333
+Balanced Accuracy           1.0000            1.0000           1.0000
+
+
+
+[1] "Random Forest Results"
+            
+             setosa versicolor virginica
+  setosa         38          0         0
+  versicolor      0         35         4
+  virginica       0          3        34
+
+Call:
+ randomForest(formula = Species ~ ., data = training.Iris, ntree = 100,      proximity = TRUE) 
+               Type of random forest: classification
+                     Number of trees: 100
+No. of variables tried at each split: 2
+
+        OOB estimate of  error rate: 6.14%
+Confusion matrix:
+           setosa versicolor virginica class.error
+setosa         38          0         0  0.00000000
+versicolor      0         35         3  0.07894737
+virginica       0          4        34  0.10526316
+
+
+
+[1] "NeuralNet results"
+
+# weights:  83
+initial  value 138.051941 
+iter  10 value 52.865741
+iter  20 value 52.671826
+iter  30 value 51.364273
+iter  40 value 46.694061
+iter  50 value 8.972303
+iter  60 value 6.126358
+iter  70 value 4.922796
+iter  80 value 4.699391
+iter  90 value 4.681716
+iter 100 value 4.662543
+final  value 4.662543 
+stopped after 100 iterations
+
+
+Confusion Matrix and Statistics
+
+            Reference
+Prediction   setosa versicolor virginica
+  setosa         12          0         0
+  versicolor      0         12         1
+  virginica       0          0        11
+
+Overall Statistics
+                                          
+               Accuracy : 0.9722          
+                 95% CI : (0.8547, 0.9993)
+    No Information Rate : 0.3333          
+    P-Value [Acc > NIR] : 4.864e-16       
+                                          
+                  Kappa : 0.9583          
+                                          
+ Mcnemar's Test P-Value : NA              
+
+Statistics by Class:
+
+                     Class: setosa Class: versicolor Class: virginica
+Sensitivity                 1.0000            1.0000           0.9167
+Specificity                 1.0000            0.9583           1.0000
+Pos Pred Value              1.0000            0.9231           1.0000
+Neg Pred Value              1.0000            1.0000           0.9600
+Prevalence                  0.3333            0.3333           0.3333
+Detection Rate              0.3333            0.3333           0.3056
+Detection Prevalence        0.3333            0.3611           0.3056
+Balanced Accuracy           1.0000            0.9792           0.9583
+
+
+
+[1] "INKA results"
+
+Confusion Matrix and Statistics
+
+            Reference
+Prediction   setosa versicolor virginica
+  setosa         12          0         0
+  versicolor      0         12         1
+  virginica       0          0        11
+
+Overall Statistics
+                                          
+               Accuracy : 0.9722          
+                 95% CI : (0.8547, 0.9993)
+    No Information Rate : 0.3333          
+    P-Value [Acc > NIR] : 4.864e-16       
+                                          
+                  Kappa : 0.9583          
+                                          
+ Mcnemar's Test P-Value : NA              
+
+Statistics by Class:
+
+                     Class: setosa Class: versicolor Class: virginica
+Sensitivity                 1.0000            1.0000           0.9167
+Specificity                 1.0000            0.9583           1.0000
+Pos Pred Value              1.0000            0.9231           1.0000
+Neg Pred Value              1.0000            1.0000           0.9600
+Prevalence                  0.3333            0.3333           0.3333
+Detection Rate              0.3333            0.3333           0.3056
+Detection Prevalence        0.3333            0.3611           0.3056
+Balanced Accuracy           1.0000            0.9792           0.9583

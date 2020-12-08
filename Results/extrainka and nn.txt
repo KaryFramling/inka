@@ -1,0 +1,88 @@
+[1] "INKA results"
+
+Confusion Matrix and Statistics
+
+            Reference
+Prediction   setosa versicolor virginica
+  setosa         12          0         0
+  versicolor      0         12         0
+  virginica       0          0        12
+
+Overall Statistics
+                                     
+               Accuracy : 1          
+                 95% CI : (0.9026, 1)
+    No Information Rate : 0.3333     
+    P-Value [Acc > NIR] : < 2.2e-16  
+                                     
+                  Kappa : 1          
+                                     
+ Mcnemar's Test P-Value : NA         
+
+Statistics by Class:
+
+                     Class: setosa Class: versicolor Class: virginica
+Sensitivity                 1.0000            1.0000           1.0000
+Specificity                 1.0000            1.0000           1.0000
+Pos Pred Value              1.0000            1.0000           1.0000
+Neg Pred Value              1.0000            1.0000           1.0000
+Prevalence                  0.3333            0.3333           0.3333
+Detection Rate              0.3333            0.3333           0.3333
+Detection Prevalence        0.3333            0.3333           0.3333
+Balanced Accuracy           1.0000            1.0000           1.0000
+
+> testing.Iris <- iris[-inTrain,]
+> #NeuralNet
+> print("NeuralNet results");
+[1] "NeuralNet results"
+> irisnnpred <- nnet(Species ~ ., data=training.Iris, size=10)
+# weights:  83
+initial  value 174.410408 
+iter  10 value 16.895227
+iter  20 value 5.748980
+iter  30 value 5.481802
+iter  40 value 5.342370
+iter  50 value 5.304924
+iter  60 value 5.272968
+iter  70 value 5.262072
+iter  80 value 5.221383
+iter  90 value 4.538065
+iter 100 value 4.105924
+final  value 4.105924 
+stopped after 100 iterations
+> nnpredicted <- predict(irisnnpred,testing.Iris,type="class")
+> #print(nnpredicted)
+> #nnclassification <- (nnpredicted == apply(nnpredicted,1,max)) * 1;
+> #nnperf <- sum(abs(nntest.out - nnclassification)) / 2; print(nnperf) # Simple calculation of how many mis-classified
+> #nnpred.class <- seq(1:nrow(nnclassification)); for ( i in 1:3) { nnpred.class[nnclassification[,i]==1] <- levels(iris$Species)[i]}
+> confusionMatrix(data = as.factor(nnpredicted), reference = iris[-inTrain, 5])
+Confusion Matrix and Statistics
+
+            Reference
+Prediction   setosa versicolor virginica
+  setosa         12          0         0
+  versicolor      0         12         1
+  virginica       0          0        11
+
+Overall Statistics
+                                          
+               Accuracy : 0.9722          
+                 95% CI : (0.8547, 0.9993)
+    No Information Rate : 0.3333          
+    P-Value [Acc > NIR] : 4.864e-16       
+                                          
+                  Kappa : 0.9583          
+                                          
+ Mcnemar's Test P-Value : NA              
+
+Statistics by Class:
+
+                     Class: setosa Class: versicolor Class: virginica
+Sensitivity                 1.0000            1.0000           0.9167
+Specificity                 1.0000            0.9583           1.0000
+Pos Pred Value              1.0000            0.9231           1.0000
+Neg Pred Value              1.0000            1.0000           0.9600
+Prevalence                  0.3333            0.3333           0.3333
+Detection Rate              0.3333            0.3333           0.3056
+Detection Prevalence        0.3333            0.3611           0.3056
+Balanced Accuracy           1.0000            0.9792           0.9583
