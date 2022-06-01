@@ -158,7 +158,6 @@ rbf.new <- function(nbrInputs, nbrOutputs, n.hidden.neurons,
 
   class(pub) <- c("RBF",class(fa),class(pub))
   return(pub)
-
 }
 
 #' INKA training algorithm, as in my (Kary's) PhD thesis.
