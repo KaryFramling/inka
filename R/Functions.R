@@ -394,22 +394,22 @@ affine.transformation.new <- function(A=NULL, b=NULL) {
   return(m)
 }
 
-#' Create affine transformation for scaling and translating between
-#' two value intervals.
-#' @param minvals blabla
-#' @param maxvals blabla
-#' @param newmins blabla
-#' @param newmaxs blabla
-#' @return Affine transformation "object" that scales and translates the
-#' coordinates from one set of ranges to another range.
-#' @export
-scale.translate.ranges <- function(minvals, maxvals, newmins, newmaxs) {
-  old.ranges <- maxvals - minvals
-  new.ranges <- newmaxs - newmins
-  ratios <- new.ranges/old.ranges
-  A <- diag(length(minvals))*ratios
-  b <- (newmins - minvals)*ratios
-  return(affine.transformation.new(A=A, b=b))
-}
+#' #' Create affine transformation for scaling and translating between
+#' #' two value intervals.
+#' #' @param minvals blabla
+#' #' @param maxvals blabla
+#' #' @param newmins blabla
+#' #' @param newmaxs blabla
+#' #' @return Affine transformation "object" that scales and translates the
+#' #' coordinates from one set of ranges to another range.
+#' #' @export
+#' scale.translate.ranges <- function(minvals, maxvals, newmins, newmaxs) {
+#'   old.ranges <- maxvals - minvals
+#'   new.ranges <- newmaxs - newmins
+#'   ratios <- new.ranges/old.ranges
+#'   A <- diag(length(minvals))*ratios
+#'   b <- (newmins - minvals)*ratios
+#'   return(affine.transformation.new(A=A, b=b))
+#' }
 
 
