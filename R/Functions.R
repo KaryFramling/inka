@@ -394,7 +394,7 @@ affine.transformation.new <- function(A=NULL, b=NULL) {
   return(m)
 }
 
-#' Create affine transfromation for scaling and translating between
+#' Create affine transformation for scaling and translating between
 #' two value intervals.
 #' @param minvals blabla
 #' @param maxvals blabla
